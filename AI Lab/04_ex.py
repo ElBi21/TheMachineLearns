@@ -47,4 +47,4 @@ cv2.imshow("Output Image", out_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-cv2.imwrite("AI Lab/imgs/04_imgs/gerry_transf.png", out_img)
+# cv2.imwrite("AI Lab/imgs/04_imgs/gerry_transf.png", out_img)
