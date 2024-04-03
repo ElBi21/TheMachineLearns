@@ -7,7 +7,7 @@ prefix = "AI Lab/exercises/01_homography/"
 
 board = cv2.imread(prefix + "billboard.jpg")
 board_copy = board.copy()
-image = cv2.imread(prefix + "image.jpg")
+image = cv2.imread(prefix + "Shrek.png")
 
 def onClick(event, x, y, flags, params):
     if event == cv2.EVENT_LBUTTONDOWN: 
@@ -40,3 +40,14 @@ dst_float = np.array(dst_points, dtype=np.float32)
 homography_matrix = cv2.getPerspectiveTransform(src_points, dst_float)
 warped = cv2.warpPerspective(image, homography_matrix, (board_w, board_h))
 
+mask = np.zeros(board.shape, dtype=np.uint8)
+cv2.fillConvexPoly(mask, np.int32(dst_float), (255, 255, 255))
+mask = cv2.bitwise_not(mask)
+masked_billboard = cv2.bitwise_and(board, mask)
+
+final_img = cv2.bitwise_or(masked_billboard, warped)
+
+cv2.namedWindow("Final", cv2.WINDOW_FREERATIO)
+cv2.imshow("Final", final_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
