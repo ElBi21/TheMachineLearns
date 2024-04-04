@@ -8,6 +8,9 @@ image = cv2.imread(prefix + "imgs/04_imgs/gerry.png")
 image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 gray_eq = cv2.equalizeHist(image_gray)
 
+cv2.imwrite(prefix + "06_imgs/gerry_gray.png", image_gray)
+cv2.imwrite(prefix + "06_imgs/gerry_gray_eq.png", gray_eq)
+
 channels = cv2.split(image)
 eq_channels = []
 

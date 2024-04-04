@@ -1,5 +1,7 @@
 */.DS_Store
 .DS_Store
+.vscode
 AI Lab/.ipynb_checkpoints
 AI Lab/exercises/01_homography/images/
 AI Lab/exercises/01_homography/funny_billboard.py
+00_temp.ipynb
