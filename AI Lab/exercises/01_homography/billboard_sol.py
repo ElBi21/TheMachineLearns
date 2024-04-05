@@ -7,7 +7,7 @@ prefix = "AI Lab/exercises/01_homography/"
 
 board = cv2.imread(prefix + "billboard.jpg")
 board_copy = board.copy()
-image = cv2.imread(prefix + "Shrek.png")
+image = cv2.imread(prefix + "images/tolomei.jpeg")
 
 def onClick(event, x, y, flags, params):
     if event == cv2.EVENT_LBUTTONDOWN: 
@@ -46,6 +46,8 @@ mask = cv2.bitwise_not(mask)
 masked_billboard = cv2.bitwise_and(board, mask)
 
 final_img = cv2.bitwise_or(masked_billboard, warped)
+
+cv2.imwrite("AI Lab/onboard.png", final_img)
 
 cv2.namedWindow("Final", cv2.WINDOW_FREERATIO)
 cv2.imshow("Final", final_img)
