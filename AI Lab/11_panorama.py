@@ -34,8 +34,10 @@ if len(good_matches) > 4:
     # Compute the homography matrix
     M, mask = cv2.findHomography(src_points, dst_points)
 
-    # Transform left image and stitch it together with the right image
-    dst = cv2.warpPerspective(image1, M, (image1.shape[1] + image2.shape[1], image1.shape[0]))
+    print(M)
+
+    # Transform left image and stitch it together with the right image       # \/ this removes the black part
+    dst = cv2.warpPerspective(image1, M, (image1.shape[1] + image2.shape[1] - int(M[0, 2]), image1.shape[0]))
 
     dst[0:image2.shape[0], 0:image2.shape[1]] = image2.copy()
 

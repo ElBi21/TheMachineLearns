@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-def showimgs(imgs: dict):
+def showimgs(imgs: dict) -> None:
     """Shows some images in multiple `cv2` windows
     
     Parameters:
@@ -68,4 +68,4 @@ for img in db:
 best_match = matches.index(max(matches, key=len))
 
 print(f"The provided image seems similar to {list(database.keys())[best_match]}")
-showimgs({"Original": to_test, "From the database": list(database.values())[best_match]})
+# showimgs({"Original": to_test, "From the database": list(database.values())[best_match]})
